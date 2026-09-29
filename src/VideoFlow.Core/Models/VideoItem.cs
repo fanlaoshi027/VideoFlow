@@ -4,10 +4,13 @@ public sealed class VideoItem
 {
     public Guid Id { get; init; } = Guid.NewGuid();
     public string SourcePath { get; set; } = string.Empty;
+    public string OriginalFileName { get; set; } = string.Empty;
     public string FileName { get; set; } = string.Empty;
     public int? PageNumber { get; set; }
     public string? PageCode => PageNumber is null ? null : $"P{PageNumber}";
     public string? TextbookId { get; set; }
+    public string? Chapter { get; set; }
+    public string? Section { get; set; }
     public string? DirectoryTitle { get; set; }
     public TimeSpan? Duration { get; set; }
     public int? Width { get; set; }
