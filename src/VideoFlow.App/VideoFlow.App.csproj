@@ -8,6 +8,5 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\VideoFlow.Core\VideoFlow.Core.csproj" />
-    <PackageReference Include="ClosedXML" Version="0.104.2" />
   </ItemGroup>
 </Project>
