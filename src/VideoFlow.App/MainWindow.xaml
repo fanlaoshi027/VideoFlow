@@ -7,12 +7,11 @@
       <ColumnDefinition Width="220"/>
       <ColumnDefinition Width="*"/>
     </Grid.ColumnDefinitions>
-
     <Border Grid.Column="0" Background="#123A63">
       <StackPanel Margin="18">
         <TextBlock Text="VideoFlow" Foreground="White" FontSize="24" FontWeight="SemiBold" Margin="6,10,6,28"/>
         <Button Content="视频库" Margin="0,0,0,8" Height="42"/>
-        <Button Content="教材库" Margin="0,0,0,8" Height="42"/>
+        <Button Content="教材库" Margin="0,0,0,8" Height="42" Click="OpenDirectoryImport_Click"/>
         <Button Content="发布中心" Margin="0,0,0,8" Height="42"/>
         <Button Content="标签库" Margin="0,0,0,8" Height="42"/>
         <Button Content="平台管理" Margin="0,0,0,8" Height="42"/>
@@ -20,7 +19,6 @@
         <Button Content="设置" Height="42"/>
       </StackPanel>
     </Border>
-
     <Grid Grid.Column="1" Margin="24">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
@@ -28,15 +26,14 @@
         <RowDefinition Height="*"/>
         <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
-
       <DockPanel Grid.Row="0" Margin="0,0,0,18">
         <TextBlock Text="视频库" FontSize="28" FontWeight="SemiBold" VerticalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
           <Button Content="导入视频" Width="110" Height="38" Margin="8,0,0,0" Click="ImportVideos_Click"/>
+          <Button Content="导入目录 Excel" Width="130" Height="38" Margin="8,0,0,0" Click="OpenDirectoryImport_Click"/>
           <Button Content="一键整理" Width="110" Height="38" Margin="8,0,0,0"/>
         </StackPanel>
       </DockPanel>
-
       <Border Grid.Row="1" Background="White" CornerRadius="8" Padding="14" Margin="0,0,0,14">
         <DockPanel>
           <TextBox Width="300" Height="34" Padding="10,6" Text="搜索视频、页码、目录……"/>
@@ -50,7 +47,6 @@
           </ComboBox>
         </DockPanel>
       </Border>
-
       <Border Grid.Row="2" Background="White" CornerRadius="8" Padding="12">
         <DataGrid ItemsSource="{Binding Videos}" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" GridLinesVisibility="Horizontal">
           <DataGrid.Columns>
@@ -62,7 +58,6 @@
           </DataGrid.Columns>
         </DataGrid>
       </Border>
-
       <TextBlock x:Name="StatusText" Grid.Row="3" Text="准备就绪" Foreground="#667085" Margin="4,10,0,0"/>
     </Grid>
   </Grid>
