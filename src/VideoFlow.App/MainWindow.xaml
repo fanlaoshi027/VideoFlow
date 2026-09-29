@@ -26,13 +26,14 @@
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="Auto"/>
         <RowDefinition Height="*"/>
+        <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
 
       <DockPanel Grid.Row="0" Margin="0,0,0,18">
         <TextBlock Text="视频库" FontSize="28" FontWeight="SemiBold" VerticalAlignment="Center"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
-          <Button Content="导入视频" Width="100" Height="38" Margin="8,0,0,0"/>
-          <Button Content="一键整理" Width="100" Height="38" Margin="8,0,0,0"/>
+          <Button Content="导入视频" Width="110" Height="38" Margin="8,0,0,0" Click="ImportVideos_Click"/>
+          <Button Content="一键整理" Width="110" Height="38" Margin="8,0,0,0"/>
         </StackPanel>
       </DockPanel>
 
@@ -41,7 +42,6 @@
           <TextBox Width="300" Height="34" Padding="10,6" Text="搜索视频、页码、目录……"/>
           <ComboBox Width="180" Height="34" Margin="12,0,0,0">
             <ComboBoxItem Content="全部教材"/>
-            <ComboBoxItem Content="八上《大培优》"/>
           </ComboBox>
           <ComboBox Width="150" Height="34" Margin="12,0,0,0">
             <ComboBoxItem Content="全部状态"/>
@@ -52,19 +52,18 @@
       </Border>
 
       <Border Grid.Row="2" Background="White" CornerRadius="8" Padding="12">
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" GridLinesVisibility="Horizontal">
+        <DataGrid ItemsSource="{Binding Videos}" AutoGenerateColumns="False" IsReadOnly="True" HeadersVisibility="Column" GridLinesVisibility="Horizontal">
           <DataGrid.Columns>
-            <DataGridTextColumn Header="页码" Binding="{Binding Page}" Width="75"/>
-            <DataGridTextColumn Header="目录" Binding="{Binding Title}" Width="2*"/>
+            <DataGridTextColumn Header="页码" Binding="{Binding PageCode}" Width="75"/>
+            <DataGridTextColumn Header="目录" Binding="{Binding DirectoryTitle}" Width="2*"/>
             <DataGridTextColumn Header="视频" Binding="{Binding FileName}" Width="2*"/>
             <DataGridTextColumn Header="时长" Binding="{Binding Duration}" Width="90"/>
-            <DataGridTextColumn Header="抖音" Binding="{Binding DouyinStatus}" Width="90"/>
-            <DataGridTextColumn Header="小红书" Binding="{Binding XiaohongshuStatus}" Width="90"/>
-            <DataGridTextColumn Header="B站" Binding="{Binding BilibiliStatus}" Width="90"/>
-            <DataGridTextColumn Header="操作" Width="100"/>
+            <DataGridTextColumn Header="路径" Binding="{Binding SourcePath}" Width="3*"/>
           </DataGrid.Columns>
         </DataGrid>
       </Border>
+
+      <TextBlock x:Name="StatusText" Grid.Row="3" Text="准备就绪" Foreground="#667085" Margin="4,10,0,0"/>
     </Grid>
   </Grid>
 </Window>
